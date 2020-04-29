@@ -83,11 +83,16 @@
         });
     }
 
-    const { createWorker } = FFmpeg;
-    const ffmpeg = createWorker({
-        corePath: 'ffmpeg-core.min.js',
-        progress: (p) => console.log(p),
-        logger: ({ message }) => console.log(message),
+    // const { createWorker } = FFmpeg;
+    // const ffmpeg = createWorker({
+    //     corePath: 'ffmpeg-core.js',
+    //     progress: (p) => console.log(p),
+    //     logger: ({ message }) => console.log(message),
+    // });
+    const { createFFmpeg } = FFmpeg;
+    const ffmpeg = createFFmpeg({
+        corePath: 'ffmpeg-core.js',
+        log: true
     });
 
     const captureWebcam = async () => {
